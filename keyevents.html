@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
     <style>
-
+        .daya{
+            padding: 90px;
+            margin-right: 80px;
+        }
+        .don{
+            margin-left:30%;
+        }
     </style>
 </head>
 
 <body>
     <form action="">
+        <center>
         <div class="daya">
             <table>
                 <tr>
@@ -19,7 +25,8 @@
                         <label for="name">Name:</label>
                     </td>
                     <td>
-                        <input type="text" id="daya" >
+                        <input type="text" id="daya" required >
+                        <P id="pop" style="color: brown;"></P>
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +34,8 @@
                         <label for="date">DOB:</label>
                     </td>
                     <td>
-                        <input type="date" id="daya1">
+                        <input type="date" id="daya1" required>
+                        
                     </td>
                 </tr>
                 <tr>
@@ -44,7 +52,8 @@
                          <label for="number">Mobile No:</label>
                     </td>
                     <td>
-                         <input type="number" id="daya3">
+                         <input type="number" id="daya3" required>
+                          <P id="mom" style="color: brown;"></P>
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +62,7 @@
                     </td>
                     <td>
                         
-                         <input type="text" id="daya4">
+                         <input type="text" id="daya4" required>
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +70,7 @@
                      <label for="text">Password:</label>
                     </td>
                     <td>
-                    <input type="text" id="daya5">
+                    <input type="text" id="daya5" required>
                     </td>
                 </tr>
                 <tr>
@@ -69,36 +78,43 @@
                         <label for="text">Confirm-Password:</label>
                     </td>
                     <td>
-                         <input type="text" id="daya6">
+                         <input type="text" id="daya6" required>
                     </td>
                 </tr>
                 
-                <tr>
+                <tr><td></td>
                     <td>
-                     <button type="button" onclick="index()">submit</button>
+                     <button type="submit
+                     " onclick="index()">submit</button>
                     </td>
                 </tr>
                 
             </table>
         </div>
+        </center>
     </form>
     <script>
          function index() {
             let a=document.getElementById("daya4").value
              let b=document.getElementById("daya5").value
               let c=document.getElementById("daya6").value
-           var target=/[@,!]+/
-         if(target.test(a)!=true){
+              let d=document.getElementById("daya").value
+              let e=document.getElementById("daya3").value
+           var target=/[@,!,#,%]+/
+         if (d == "" || d == null ||d == undefined) {
+            document.getElementById("pop").innerHTML="Enter Your Name"
+        }else if(e == "" || e == null ||e == undefined||e.length<10) {
+           document.getElementById("mom").innerHTML=("Enter Your  10 Digit Phone Number")
+        } else if(target.test(a)!=true){
             alert("Email wrong")
         } else if(target.test(b)!=true){
             alert("Password is Wrong")
-        }else if(b==c){
-            alert(none)
-        }else{
+        }else if(b==c!=true){
             alert("Password is Mismatched")
+        }else{
+            alert("Login Success")
         }
-
-    }
+         }
 </script>
 </body>
 </html>
